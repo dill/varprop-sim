@@ -42,9 +42,9 @@ n_obs_plot <- ggplot(subset(results, model==" varprop")) +
 
 # plot results
 ggplot(results) +
-  geom_histogram(aes(quantile), breaks=seq(0, 1, by=0.1)) +
+  geom_histogram(aes(quantile), binwidth=0.15) +
   geom_vline(xintercept=0.5, colour="red") +
-  facet_grid(model~betaset, scale="free_y") +
+  facet_grid(model~betaset) +
   labs(x="Quantile", y="Count") +
   theme_minimal()
 
@@ -57,4 +57,11 @@ ggplot(results) +
   labs(x="Quantile", y="Count") +
   theme_minimal()
 
+
+ggplot(results) +
+  geom_histogram(aes(Nbirds-Nhat),bins=20 ) +
+  geom_vline(xintercept=0, colour="red") +
+  facet_grid(model~betaset) +
+  labs(x="Bias", y="Count") +
+  theme_minimal()
 
