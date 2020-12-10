@@ -114,7 +114,7 @@ par_func <- function(X){
   res <- simit(these_betas, truncation="10%", betaset=names(all_betas)[b],
                id=paste(b, X, sep="-"))
 
-  write.table(res, file=paste0("results-", names(all_betas)[b], ".csv"),
+  write.table(res, file=paste0("results_csvs/results-", names(all_betas)[b], ".csv"),
              append=TRUE, col.names=FALSE, sep=", ")
 
   gc()
